@@ -40,19 +40,20 @@ The project uses Java Swing for the graphical user interface and MySQL for data 
 ---
 
 ## How to Run
+
 1. Compile the project:
-   ```bash
    javac ATMGUI.java ATM.java DBConnection.java
 
 2. Run the application:
-    ``` java -cp ".;lib/mysql-connector-j-8.2.0.jar" ATMGUI
+   java -cp ".;lib/mysql-connector-j-8.2.0.jar" ATMGUI
 
 ---
 
+
 ## Future Improvements
--PIN hashing instead of plain storage
--Login attempt limits
--Improved GUI layout and user experience
+- PIN hashing instead of plain storage
+- Login attempt limits
+- Improved GUI layout and user experience
 
 ---
 
