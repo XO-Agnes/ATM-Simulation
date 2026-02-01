@@ -30,6 +30,28 @@ public class ATM
         }
     }
 
+    boolean verifyPin(int pin) {
+    try {
+        Connection con = DBConnection.getConnection();
+        String sql = "SELECT 1 FROM users WHERE account_no = ? AND pin = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+
+        ps.setString(1, accNo);
+        ps.setInt(2, pin);
+
+        ResultSet rs = ps.executeQuery();
+        boolean result = rs.next();
+
+        con.close();
+        return result;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
+
     boolean login(String acc,int pin)
     {
         try 
