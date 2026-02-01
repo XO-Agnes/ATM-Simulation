@@ -5,6 +5,7 @@ public class ATM
 {
     int bal;
     String accNo;
+    String userName;
 
     boolean register(String acc,String name,int pin,int bal)
     {
@@ -58,7 +59,7 @@ public class ATM
         {
             Connection con=DBConnection.getConnection();
 
-            String sql="SELECT balance FROM users WHERE account_no=? AND pin=?";
+            String sql="SELECT name,balance FROM users WHERE account_no=? AND pin=?";
             PreparedStatement ps=con.prepareStatement(sql);
 
             ps.setString(1, acc);
@@ -67,6 +68,7 @@ public class ATM
             
             if(rs.next())
             {
+                userName=rs.getString("name");
                 bal=rs.getInt("balance");
                 accNo=acc;
                 con.close();
